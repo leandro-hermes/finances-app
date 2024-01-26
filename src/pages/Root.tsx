@@ -34,7 +34,7 @@ export const Root: React.FC = () => {
   }, [pathname]);
 
   return (
-    <Box className="bg-sky-950 w-full h-full flex flex-col">
+    <Box className="bg-amber-50 w-full h-full flex flex-col">
       <div className="flex-1">
         <Outlet/>
       </div>

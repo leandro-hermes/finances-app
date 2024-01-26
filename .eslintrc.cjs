@@ -24,7 +24,8 @@ module.exports = {
       {
         "patterns": ["@mui/*/*/*"]
       }
-    ]
+    ],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
   },
   parserOptions: {
     ecmaVersion: 'latest',

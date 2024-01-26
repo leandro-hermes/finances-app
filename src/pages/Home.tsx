@@ -8,11 +8,15 @@ import { useApp } from "../hooks/app";
 import { CurrencyInput } from "../shared/components/CurrencyInput";
 import { now } from "../shared/util/dates.ts";
 
-const normalizeData = (data: Record<string, any>) => {
+type ExpenseFormValues = Record<'amount' | 'date' | 'description' | 'details', string>;
+
+function extractFormData(form: HTMLFormElement) {
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries()) as unknown as ExpenseFormValues;
+
   return {
-    ...data,
-    amount: Number(String(data.amount).replace(",", "")),
-    date: String(data.date).split("/").reverse().join("-"),
+    amount: Number(data.amount.replace(/,/g, "")),
+    date: data.date.split("/").reverse().join("-"),
     description: data.description || null,
     details: data.details || null,
   };
@@ -27,9 +31,8 @@ const ExpenseForm = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    console.log(normalizeData(data));
+    const data = extractFormData(event.currentTarget);
+    console.log(data);
   }
 
   return (

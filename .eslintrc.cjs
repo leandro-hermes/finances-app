@@ -26,12 +26,13 @@ module.exports = {
       }
     ],
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/prefer-nullish-coalescing": 0,
   },
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
+    tsconfigRootDir: process.cwd(),
   },
   settings: {
     react: { version: 'detect' },

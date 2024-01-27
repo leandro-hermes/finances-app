@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useApp } from "../hooks/app";
+import { useApp } from "~hooks/app";
 
 export const Dashboard = () => {
   const { setTitle } = useApp();

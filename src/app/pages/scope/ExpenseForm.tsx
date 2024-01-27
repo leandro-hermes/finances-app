@@ -6,10 +6,9 @@ import Fab from "@mui/material/Fab";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import React, { useEffect } from "react";
-import { useApp } from "../hooks/app";
-import { CurrencyInput } from "../shared/components/CurrencyInput";
-import { now } from "../shared/util/dates.ts";
+import React from "react";
+import { CurrencyInput } from "~shared/components/CurrencyInput.tsx";
+import { now } from "~shared/util/dates.ts";
 
 type ExpenseFormValues = Record<"amount" | "date" | "description" | "details" | "category", string>;
 
@@ -26,13 +25,7 @@ function extractFormData(form: HTMLFormElement) {
   };
 }
 
-const ExpenseForm = () => {
-  const { setTitle } = useApp();
-
-  useEffect(() => {
-    setTitle("Nova despesa");
-  });
-
+export const ExpenseForm: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = extractFormData(event.currentTarget);
@@ -47,6 +40,7 @@ const ExpenseForm = () => {
           name="amount"
           variant="outlined"
           required
+          autoFocus
         />
         <DatePicker
           label="Data"
@@ -83,13 +77,5 @@ const ExpenseForm = () => {
         </Fab>
       </div>
     </form>
-  )
-};
-
-export const Home = () => {
-  return (
-    <div className="p-4 h-full relative">
-      <ExpenseForm />
-    </div>
   )
 };

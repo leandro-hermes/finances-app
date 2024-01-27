@@ -12,7 +12,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React, { useEffect } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
-import { useApp } from "../hooks/app";
+import { useApp } from "~hooks/app";
 
 const links = [
   {

@@ -26,6 +26,7 @@
       "~hooks/*": ["./src/app/hooks/*"],
       "~pages/*": ["./src/app/pages/*"],
       "~shared/*": ["./src/app/shared/*"],
+      "~models/*": ["./src/models/*"],
     }
   },
   "include": ["src"],
